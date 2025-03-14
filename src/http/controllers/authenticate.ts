@@ -19,7 +19,18 @@ export async function autheticate(
   try {
     const authenticateUseCase = makeAuthenticateUseCase();
 
-    await authenticateUseCase.execute({ email, password }); //executo o metodo execute criado dentro da classe do use case
+    const { user } = await authenticateUseCase.execute({ email, password }); //executo o metodo execute criado dentro da classe do use case
+
+    const token = await reply.jwtSign(
+      {},
+      {
+        sign: {
+          sub: user.id,
+        },
+      }
+    );
+
+    return reply.status(200).send({ token });
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {
       return reply.status(400).send({
@@ -29,6 +40,4 @@ export async function autheticate(
 
     return error;
   }
-
-  return reply.status(200).send();
 }
