@@ -1,6 +1,6 @@
-# API Solid GymPass
+# API Solid LikeAGymPass
 
-Bem-vindo ao repositório da **API Solid GymPass**, uma aplicação desenvolvida para gerenciar check-ins em academias, inspirada no modelo do GymPass. Este projeto foi construído com foco em boas práticas de desenvolvimento, como os princípios SOLID, Domain-Driven Design (DDD), Test-Driven Development (TDD) e padrões como Repository Pattern. A API permite que usuários se autentiquem, busquem academias próximas, realizem check-ins e acompanhem seu histórico de atividades.
+Bem-vindo ao repositório da **API Solid LikeAGymPass**, uma aplicação desenvolvida para gerenciar check-ins em academias, inspirada no modelo do GymPass. Este projeto foi construído com foco em boas práticas de desenvolvimento, como os princípios SOLID, Domain-Driven Design (DDD), Test-Driven Development (TDD) e padrões como Repository Pattern. A API permite que usuários se autentiquem, busquem academias próximas, realizem check-ins e acompanhem seu histórico de atividades.
 
 ## Funcionalidades Principais
 
@@ -50,7 +50,7 @@ Siga os passos abaixo para rodar a API localmente:
    - Renomeie o arquivo `.env.example` para `.env`.
    - Preencha as variáveis necessárias, como:
      ```
-     NODE_ENV=development
+     NODE_ENV=dev
      JWT_SECRET=sua_chave_secreta_aqui
      DATABASE_URL="postgresql://user:password@localhost:5432/gympass?schema=public"
      ```
