@@ -1,33 +1,113 @@
-# App
+# API Solid GymPass
 
-GymPass style app.
+Bem-vindo ao repositório da **API Solid GymPass**, uma aplicação desenvolvida para gerenciar check-ins em academias, inspirada no modelo do GymPass. Este projeto foi construído com foco em boas práticas de desenvolvimento, como os princípios SOLID, Domain-Driven Design (DDD), Test-Driven Development (TDD) e padrões como Repository Pattern. A API permite que usuários se autentiquem, busquem academias próximas, realizem check-ins e acompanhem seu histórico de atividades.
 
-## RFs (Requisitos funcionais)
+## Funcionalidades Principais
 
-- [x] Deve ser possivel se cadastrar;
-- [x] Deve ser possivel se autenticar;
-- [x] Deve ser possivel obter o perfil de um usuário logado;
-- [x] Deve ser possivel obter o numero de check-ins realizados pelo usuário logado;
-- [x] Deve ser possivel o usuário obter seu histórico de check-ins;
-- [x] Deve ser possivel o usuário buscar academias próximas (até 10m);
-- [x] Deve ser possivel o usuário buscar academias pelo nome;
-- [x] Deve ser possivel o usuário realizar cheack-in em uma academia;
-- [x] Deve ser possivel validar o check-in de um usuário;
-- [x] Deve ser possivel cadastrar uma academia;
+- **Registro e Autenticação de Usuários**: Cadastro de novos usuários e autenticação segura com JWT (JSON Web Token).
+- **Gerenciamento de Academias**: Busca por academias próximas (até 10 km) e registro de novas academias (restrito a administradores).
+- **Check-ins**: Permite que usuários realizem check-ins em academias, com validação de distância (máximo de 100 metros).
+- **Histórico e Métricas**: Consulta do histórico de check-ins e métricas relacionadas às atividades do usuário.
+- **Segurança**: Senhas criptografadas e controle de acesso baseado em papéis (RBAC).
 
-## RNs (Regras de negócio)
+## Tecnologias Utilizadas
 
-- [x] O usuário não deve poder se cadastrar com um e-mail duplicado;
-- [x] O usuário não pode fazer 2 check-ins no mesmo dia;
-- [x] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
-- [x] O check-in só pode ser validado até 20 minutos após criado;
-- [ ] O check-in só pode ser validado por administradores;
-- [ ] A academia só pode ser cadastrada por administradores;
+- **Node.js**: Plataforma principal para o backend.
+- **TypeScript**: Adiciona tipagem estática ao JavaScript para maior robustez.
+- **Fastify**: Framework web leve e performático.
+- **Prisma**: ORM para interação com o banco de dados PostgreSQL.
+- **PostgreSQL**: Banco de dados relacional (utilizado via Docker).
+- **Zod**: Validação de esquemas para dados de entrada.
+- **Vitest**: Ferramenta de testes unitários e end-to-end.
+- **Docker**: Containerização do banco de dados.
+- **JWT**: Autenticação baseada em tokens.
+- **Bcrypt**: Criptografia de senhas.
 
-## RNFs (Requisitos não-funcionais)
+## Pré-requisitos
 
-- [x] A senha do usuário precisa estar criptografada;
-- [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
-- [x] Todas listas de dados precisam estar paginados em até 20 itens por página;
-- [ ] O usuário deve ser identificado por um JWT (Json Web Token) ;
+Antes de começar, certifique-se de ter instalado:
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+- [Docker](https://www.docker.com/get-started) (para o banco de dados PostgreSQL)
+- [Git](https://git-scm.com/)
+
+## Como Configurar e Executar
+
+Siga os passos abaixo para rodar a API localmente:
+
+1. **Clone o Repositório**
+   ```bash
+   git clone https://github.com/RichardLirio/api_solid_GymPass.git
+   cd api_solid_GymPass
+   ```
+
+2. **Instale as Dependências**
+   ```bash
+   npm install
+   ```
+
+3. **Configure as Variáveis de Ambiente**
+   - Renomeie o arquivo `.env.example` para `.env`.
+   - Preencha as variáveis necessárias, como:
+     ```
+     NODE_ENV=development
+     JWT_SECRET=sua_chave_secreta_aqui
+     DATABASE_URL="postgresql://user:password@localhost:5432/gympass?schema=public"
+     ```
+
+4. **Inicie o Banco de Dados com Docker**
+   ```bash
+   docker compose up -d
+   ```
+
+5. **Execute as Migrações do Prisma**
+   ```bash
+   npx prisma migrate dev
+   ```
+
+6. **Inicie a API**
+   ```bash
+   npm run dev
+   ```
+   A API estará disponível em `http://localhost:3333`.
+
+## Testes
+
+O projeto inclui testes unitários e end-to-end para garantir a robustez da aplicação.
+
+- **Rodar Testes Unitários**
+  ```bash
+  npm run test
+  ```
+
+- **Rodar Testes End-to-End**
+  ```bash
+  npm run test:e2e
+  ```
+
+## Rotas Principais
+
+Aqui estão algumas das principais rotas disponíveis na API:
+
+- **POST /users**: Registra um novo usuário.
+- **POST /sessions**: Autentica um usuário e retorna um token JWT.
+- **PATCH /token/refresh**: Renova o token JWT.
+- **GET /gyms/nearby**: Busca academias próximas (até 10 km).
+- **POST /gyms**: Cria uma nova academia (apenas administradores).
+- **POST /check-ins**: Realiza um check-in em uma academia.
+- **GET /check-ins/history**: Retorna o histórico de check-ins do usuário.
+
+Para detalhes completos das rotas e payloads, consulte a documentação ou utilize uma ferramenta como [Insomnia](https://insomnia.rest/) ou [Postman](https://www.postman.com/).
+
+## Status do Projeto
+
+Este projeto está **em desenvolvimento**. Novas funcionalidades, melhorias de performance e correções de bugs podem ser adicionadas no futuro.
+
+## Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias ou correções.
+
+## Licença
+
+Este projeto é licenciado sob a [MIT License](LICENSE).
 
