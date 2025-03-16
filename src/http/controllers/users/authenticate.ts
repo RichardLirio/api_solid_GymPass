@@ -20,7 +20,9 @@ export async function autheticate(
     const { user } = await authenticateUseCase.execute({ email, password }); //executo o metodo execute criado dentro da classe do use case
 
     const token = await reply.jwtSign(
-      {},
+      {
+        role: user.role,
+      },
       {
         sign: {
           sub: user.id,
@@ -29,7 +31,9 @@ export async function autheticate(
     );
 
     const refreshToken = await reply.jwtSign(
-      {},
+      {
+        role: user.role,
+      },
       {
         sign: {
           sub: user.id,
