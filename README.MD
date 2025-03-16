@@ -101,10 +101,6 @@ Aqui estão algumas das principais rotas disponíveis na API:
 
 Para detalhes completos das rotas e payloads, consulte a documentação ou utilize uma ferramenta como [Insomnia](https://insomnia.rest/) ou [Postman](https://www.postman.com/).
 
-## Status do Projeto
-
-Este projeto está **em desenvolvimento**. Novas funcionalidades, melhorias de performance e correções de bugs podem ser adicionadas no futuro.
-
 ## Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias ou correções.
