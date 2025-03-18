@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      api-solid-mariadb:
+      postgres:
         image: bitnami/postgresql
         ports:
           - 5432:5432
