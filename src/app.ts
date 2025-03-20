@@ -17,8 +17,7 @@ app.register(fastifyswagger, {
   openapi: {
     info: {
       title: "API Solid Like a GymPass",
-      description:
-        "Documentação da API like a GymPass construída com princípios SOLID",
+      description: "GymPass like API documentation built with SOLID principles",
       version: "1.0.0",
     },
     externalDocs: {

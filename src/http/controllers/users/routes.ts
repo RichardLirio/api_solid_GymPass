@@ -4,9 +4,9 @@ import { autheticate } from "./authenticate";
 import { profile } from "./profile";
 import { VerifyJWT } from "@/http/middlewares/verify-jwt";
 import { refresh } from "./refresh";
-import { Schema } from "zod";
 
 export async function usersRoutes(app: FastifyInstance) {
+  //register new user
   app.post(
     "/users",
     {
@@ -52,6 +52,7 @@ export async function usersRoutes(app: FastifyInstance) {
     },
     register
   );
+  //login user
   app.post(
     "/sessions",
     {
@@ -113,7 +114,7 @@ export async function usersRoutes(app: FastifyInstance) {
     },
     autheticate
   );
-
+  //token refresh
   app.patch(
     "/token/refresh",
     {
@@ -155,7 +156,7 @@ export async function usersRoutes(app: FastifyInstance) {
     refresh
   );
 
-  /** Authenticated */
+  /** Authenticated user*/
   app.get(
     "/me",
     {
@@ -172,7 +173,6 @@ export async function usersRoutes(app: FastifyInstance) {
         response: {
           200: {
             description: "Successful get the user profile.",
-
             type: "object",
             properties: {
               user: {
