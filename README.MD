@@ -1,5 +1,5 @@
 ## API Solid GymPass
-   Bem-vindo ao repositório da API Solid GymPass, uma aplicação desenvolvida para gerenciar check-ins em academias, inspirada no modelo do Gympass. Este projeto foi construído com foco em boas práticas de desenvolvimento, como os princípios SOLID, DDD (Domain-Driven Design) e TDD (Test-Driven Development), utilizando Node.js e TypeScript.
+   Bem-vindo ao repositório da API Solid GymPass, uma aplicação desenvolvida para gerenciar check-ins em academias, inspirada no modelo do Gympass. Este projeto foi construído com foco em boas práticas de desenvolvimento, como os princípios SOLID, DDD (Domain-Driven Design) e TDD (Test-Driven Development), utilizando Node.js, TypeScript e Fastify.
 
 ## Sobre o Projeto
    A API Solid GymPass permite que usuários realizem check-ins em academias, com validações específicas, como a restrição de distância (ex.: check-in permitido apenas se o usuário estiver a até 100 metros da academia). Além disso, oferece funcionalidades para cadastro de usuários e academias, busca por academias próximas e gerenciamento de atividades físicas.
@@ -17,6 +17,8 @@
 - **Node.js**: Plataforma principal para o backend.
 - **TypeScript**: Adiciona tipagem estática ao JavaScript para maior robustez.
 - **Fastify**: Framework web leve e performático.
+- **Fastify Swagger**: Fastify plugin para documentar os endpoints.
+- **Fastify Swagger UI**: Fastify plugin para vizualização e testes de endpoints.
 - **Prisma**: ORM para interação com o banco de dados PostgreSQL.
 - **PostgreSQL**: Banco de dados relacional (utilizado via Docker).
 - **Zod**: Validação de esquemas para dados de entrada.
@@ -26,6 +28,9 @@
 - **Bcrypt**: Criptografia de senhas.
 
 ## Pré-requisitos
+
+## Novidades
+   Documentação da API: Agora a API conta com documentação interativa gerada automaticamente utilizando Fastify Swagger. Acesse a documentação em /docs após iniciar o servidor para explorar os endpoints, parâmetros e respostas disponíveis.
 
 Antes de começar, certifique-se de ter instalado:
 - [Node.js](https://nodejs.org/) (versão 20.17 ou superior)
@@ -71,7 +76,8 @@ Siga os passos abaixo para rodar a API localmente:
    ```bash
    npm run dev
    ```
-   A API estará disponível em `http://localhost:3333`.
+   A API estará disponível em: `http://localhost:3333`.
+   Acesse a documentação da API em: `http://localhost:3333/docs`.
 
 ## Testes
 
@@ -98,6 +104,7 @@ Aqui estão algumas das principais rotas disponíveis na API:
 - **POST /gyms**: Cria uma nova academia (apenas administradores).
 - **POST /check-ins**: Realiza um check-in em uma academia.
 - **GET /check-ins/history**: Retorna o histórico de check-ins do usuário.
+- **GET /docs**: Acesse a documentação da API
 
 Para detalhes completos das rotas e payloads, consulte a documentação ou utilize uma ferramenta como [Insomnia](https://insomnia.rest/) ou [Postman](https://www.postman.com/).
 
