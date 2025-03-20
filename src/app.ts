@@ -49,6 +49,15 @@ app.register(fastifyswagger, {
         description: "Routes about check-ins",
       },
     ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
     paths: {
       "/docs": {
         get: {
