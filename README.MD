@@ -1,6 +1,8 @@
-# API Solid LikeAGymPass
+## API Solid GymPass
+   Bem-vindo ao repositório da API Solid GymPass, uma aplicação desenvolvida para gerenciar check-ins em academias, inspirada no modelo do Gympass. Este projeto foi construído com foco em boas práticas de desenvolvimento, como os princípios SOLID, DDD (Domain-Driven Design) e TDD (Test-Driven Development), utilizando Node.js e TypeScript.
 
-Bem-vindo ao repositório da **API Solid LikeAGymPass**, uma aplicação desenvolvida para gerenciar check-ins em academias, inspirada no modelo do GymPass. Este projeto foi construído com foco em boas práticas de desenvolvimento, como os princípios SOLID, Domain-Driven Design (DDD), Test-Driven Development (TDD) e padrões como Repository Pattern. A API permite que usuários se autentiquem, busquem academias próximas, realizem check-ins e acompanhem seu histórico de atividades.
+## Sobre o Projeto
+   A API Solid GymPass permite que usuários realizem check-ins em academias, com validações específicas, como a restrição de distância (ex.: check-in permitido apenas se o usuário estiver a até 100 metros da academia). Além disso, oferece funcionalidades para cadastro de usuários e academias, busca por academias próximas e gerenciamento de atividades físicas.
 
 ## Funcionalidades Principais
 
@@ -26,7 +28,7 @@ Bem-vindo ao repositório da **API Solid LikeAGymPass**, uma aplicação desenvo
 ## Pré-requisitos
 
 Antes de começar, certifique-se de ter instalado:
-- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- [Node.js](https://nodejs.org/) (versão 20.17 ou superior)
 - [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
 - [Docker](https://www.docker.com/get-started) (para o banco de dados PostgreSQL)
 - [Git](https://git-scm.com/)
@@ -98,10 +100,6 @@ Aqui estão algumas das principais rotas disponíveis na API:
 - **GET /check-ins/history**: Retorna o histórico de check-ins do usuário.
 
 Para detalhes completos das rotas e payloads, consulte a documentação ou utilize uma ferramenta como [Insomnia](https://insomnia.rest/) ou [Postman](https://www.postman.com/).
-
-## Status do Projeto
-
-Este projeto está **em desenvolvimento**. Novas funcionalidades, melhorias de performance e correções de bugs podem ser adicionadas no futuro.
 
 ## Contribuições
 

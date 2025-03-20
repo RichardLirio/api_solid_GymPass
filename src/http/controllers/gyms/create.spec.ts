@@ -20,8 +20,6 @@ describe("Create Gym (e2e)", async () => {
       .set("Authorization", `Bearer ${token}`)
       .send({
         title: "JavaScript Gym",
-        description: "Some description",
-        phone: "1199999999",
         latitude: -19.936348,
         longitude: -40.404829,
       });
