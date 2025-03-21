@@ -29,6 +29,10 @@ app.register(fastifyswagger, {
         url: "http://localhost:3333", // Ajuste a porta conforme sua configuração
         description: "Servidor local",
       },
+      {
+        url: "https:api-solid-gympass.onrender.com", // Ajuste a porta conforme sua configuração
+        description: "Servidor on render",
+      }, //
     ],
     tags: [
       {
